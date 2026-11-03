@@ -44,6 +44,8 @@ jobs:
         docker build -t adrianmi89/docker-graphql:latest .
 
     - name: Push Docker Image
+      env:
+        NEW_VERSION: ${{ steps.version.outputs.version }}
       run: |
         docker push adrianmi89/docker-graphql:$NEW_VERSION
         docker push adrianmi89/docker-graphql:latest
